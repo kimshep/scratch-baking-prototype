@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>Scratch Baking Prototype</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet"
+  />
+  <script
+    src="https://kit.fontawesome.com/6cdb361a9a.js"
+    crossorigin="anonymous"
+  ></script>
+  <style>
+    body,
+    html,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Montserrat", sans-serif;
+    }
+  </style>
+  <body>
+    <!-- Navbar -->
+    <nav id="large-nav">
+      <img
+        src="scratch-logo.svg"
+        alt="Scratch Baking logo with illustrated stick of butter, canister of sugar, and cross section of egg"
+        id="nav-logo"
+        class="circle-image nav-logo"
+      />
+
+      <div id="quick-links" style="text-align: right; margin-bottom: 16px;">
+        <a href="#" class="rounded-button">ORDER NOW</a>
+        <input
+          style="margin: 0 50px 0 32px;"
+          placeholder="Search"
+          class="rounded-input"
+          aria-label="Search"
+        />
+      </div>
+
+      <div class="nav-links">
+        <div class="nav-dropdown">
+          <div class="nav-dropdown-title">
+            ORDER<i class="fa fa-caret-down"></i>
+          </div>
+          <div class="nav-dropdown-content">
+            <a href="#">Pickup/Delivery Order</a>
+            <a href="#">Catering Order</a>
+            <a href="#">Special Order</a>
+            <a href="#">Gift Cards</a>
+            <a href="#">Merchandise</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <div class="nav-dropdown-title">
+            MENU<i class="fa fa-caret-down"></i>
+          </div>
+          <div class="nav-dropdown-content">
+            <a href="#">Breakfast</a>
+            <a href="#">Lunch</a>
+            <a href="#">Dessert</a>
+            <a href="#">Drinks</a>
+            <a href="#">Bread</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <div class="nav-dropdown-title">
+            CATERING<i class="fa fa-caret-down"></i>
+          </div>
+          <div class="nav-dropdown-content">
+            <a href="#"> Place Catering Order</a>
+            <a href="#">Contact Us</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <div class="nav-dropdown-title">
+            SPECIAL ORDERS<i class="fa fa-caret-down"></i>
+          </div>
+          <div class="nav-dropdown-content">
+            <a href="#">Place Special Order</a>
+            <a href="#">Contact Us</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <div class="nav-dropdown-title">
+            ABOUT<i class="fa fa-caret-down"></i>
+          </div>
+          <div class="nav-dropdown-content about-dropdown-content">
+            <a href="#">Our Team</a>
+            <a href="#">Visit Us</a>
+            <a href="#">Contact Us</a>
+          </div>
+        </div>
+
+        <a href="#contact" class="w3-hide-small">FAQ</a>
+      </div>
+    </nav>
+
+    <!-- Navbar on small screens -->
+    <nav class="small-nav">
+      <div class="three-columns">
+        <div
+          style="
+            align-self: center;
+            justify-self: center;
+            padding-left: 24px;
+            padding-top: 10px;
+          "
+        >
+          <i
+            class="fa fa-search"
+            style="font-size: 24px; display: block; padding-bottom: 36px;"
+          ></i>
+          <a href="#" class="rounded-button" style="font-size: 14px;">ORDER</a>
+        </div>
+
+        <img
+          src="scratch-logo.svg"
+          class="circle-image"
+          alt="Scratch Baking logo with illustrated stick of butter, canister of sugar, and cross section of egg"
+        />
+
+        <a
+          href="javascript:void(0);"
+          class="hamburger-link"
+          onclick="openhamburger()"
+        >
+          <img style="height: 75px;" src="hamburger.svg" alt="Menu" />
+        </a>
+      </div>
+
+      <div id="hamburger-menu" class="small-nav-hidden">
+        <div class="nav-dropdown" onclick="openOrderSubMenu()">
+          <div class="nav-dropdown-title">
+            ORDER<i class="fa fa-caret-down"></i>
+          </div>
+          <div
+            id="order-sub-menu"
+            class="nav-dropdown-content small-nav-hidden"
+          >
+            <a href="#">Pickup/Delivery Order</a>
+            <a href="#">Catering Order</a>
+            <a href="#">Special Order</a>
+            <a href="#">Gift Cards</a>
+            <a href="#">Merchandise</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown" onclick="openMenuSubMenu()">
+          <div class="nav-dropdown-title">
+            MENU<i class="fa fa-caret-down"></i>
+          </div>
+          <div id="menu-sub-menu" class="nav-dropdown-content small-nav-hidden">
+            <a href="#">Breakfast</a>
+            <a href="#">Lunch</a>
+            <a href="#">Dessert</a>
+            <a href="#">Drinks</a>
+            <a href="#">Bread</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown" onclick="openCateringSubMenu()">
+          <div class="nav-dropdown-title">
+            CATERING<i class="fa fa-caret-down"></i>
+          </div>
+          <div
+            id="catering-sub-menu"
+            class="nav-dropdown-content small-nav-hidden"
+          >
+            <a href="#"> Place Catering Order</a>
+            <a href="#">Contact Us</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown" onclick="openSpecialOrdersSubMenu()">
+          <div class="nav-dropdown-title">
+            SPECIAL ORDERS<i class="fa fa-caret-down"></i>
+          </div>
+          <div
+            id="special-orders-sub-menu"
+            class="nav-dropdown-content small-nav-hidden"
+          >
+            <a href="#">Place Special Order</a>
+            <a href="#">Contact Us</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown" onclick="openAboutSubMenu()">
+          <div class="nav-dropdown-title">
+            ABOUT<i class="fa fa-caret-down"></i>
+          </div>
+          <div
+            id="about-sub-menu"
+            class="nav-dropdown-content small-nav-hidden"
+          >
+            <a href="#">Our Team</a>
+            <a href="#">Visit Us</a>
+            <a href="#">Contact Us</a>
+          </div>
+        </div>
+
+        <a href="#contact" style="font-weight: bold;">FAQ</a>
+      </div>
+    </nav>
+
+    <!-- Page content -->
+    <main class="w3-content" style="max-width: 2000px;">
+      <!-- Header Image -->
+      <header class="w3-display-container w3-left-align">
+        <div class="img-filter"></div>
+        <div
+          class="w3-hide-small w3-hide-medium w3-hide-large show-extra-large"
+        >
+          <img
+            src="scratch-bagel-header.jpg"
+            style="width: 100%;"
+            alt="Everything bagels surrounded by other bread items"
+          />
+          <div
+            class="w3-display-bottomleft w3-container w3-text-white"
+            style="padding: 100px; max-width: 1000px;"
+          >
+            <h1
+              style="
+                font-size: 52px;
+                font-weight: bold;
+                line-height: 62px;
+                padding-bottom: 12px;
+              "
+            >
+              A Bake Shop in a Small City with a Big Heart
+            </h1>
+            <a
+              href="#"
+              class="rounded-button"
+              style="background-color: #f8cb4c; color: black;"
+              >Explore Our Menu</a
+            >
+          </div>
+        </div>
+        <div class="w3-hide-small w3-hide-medium hide-extra-large">
+          <img
+            src="scratch-bagel-header.jpg"
+            style="width: 100%;"
+            alt="Everything bagels surrounded by other bread items"
+          />
+          <div
+            class="w3-display-bottomleft w3-container w3-padding-64 w3-text-white"
+            style="padding-left: 64px; max-width: 600px;"
+          >
+            <h1
+              style="
+                font-size: 42px;
+                font-weight: bold;
+                line-height: 50px;
+                padding-bottom: 12px;
+              "
+            >
+              A Bake Shop in a Small City with a Big Heart
+            </h1>
+            <a
+              href="#"
+              class="rounded-button"
+              style="background-color: #f8cb4c; color: black;"
+              >Explore Our Menu</a
+            >
+          </div>
+        </div>
+        <div class="w3-hide-small w3-hide-large hide-extra-large">
+          <img
+            src="scratch-bagel-header.jpg"
+            style="width: 100%;"
+            alt="Everything bagels surrounded by other bread items"
+          />
+          <div
+            class="w3-display-bottomleft w3-container w3-padding-48 w3-text-white"
+            style="padding-left: 64px; max-width: 600px;"
+          >
+            <h1
+              style="
+                font-size: 36px;
+                font-weight: bold;
+                line-height: 40px;
+                padding-bottom: 12px;
+              "
+            >
+              A Bake Shop in a Small City with a Big Heart
+            </h1>
+            <a
+              href="#"
+              class="rounded-button"
+              style="background-color: #f8cb4c; color: black;"
+              >Explore Our Menu</a
+            >
+          </div>
+        </div>
+
+        <div class="w3-hide-medium w3-hide-large hide-extra-large">
+          <img
+            src="scratch-bagel-header.jpg "
+            style="width: 100%; height: 250px; object-fit: cover;"
+            alt="Everything bagels surrounded by other bread items"
+          />
+          <div
+            class="w3-display-bottomleft w3-container w3-padding-48 w3-text-white"
+            style="padding-left: 32px; max-width: 360px;"
+          >
+            <h1
+              style="
+                font-size: 28px;
+                font-weight: bold;
+                line-height: 36px;
+                padding-bottom: 12px;
+              "
+            >
+              A Bake Shop in a Small City with a Big Heart
+            </h1>
+            <a
+              href="#"
+              class="rounded-button"
+              style="background-color: #f8cb4c; color: black;"
+              >Explore Our Menu</a
+            >
+          </div>
+        </div>
+      </header>
+
+      <!-- Brand dedication section -->
+      <section
+        class="w3-container w3-content w3-center w3-padding-64"
+        style="max-width: 1500px;"
+        id="band"
+      >
+        <div class="w3-row w3-padding-32">
+          <div class="w3-third">
+            <img
+              src="scratch-baking-quality-cupcake.jpg"
+              alt="Cupcakes with white icing and a carrot curl on top"
+              class="w3-round w3-margin-bottom circle-image"
+              style="width: 60%;"
+            />
+            <h3 style="font-size: 18px; font-weight: bold;">
+              Dedicated to Quality
+            </h3>
+            <p style="padding: 0 16px;">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor.
+            </p>
+          </div>
+          <div class="w3-third">
+            <img
+              src="scratch-baking-service-cookie.jpg"
+              alt="Woman smiling for the camera and holding half eaten giant cookie up to block the bottom half of her face"
+              class="w3-round w3-margin-bottom circle-image"
+              style="width: 60%;"
+            />
+            <h3 style="font-size: 18px; font-weight: bold;">
+              Dedicated to Service
+            </h3>
+            <p style="padding: 0 16px;">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor.
+            </p>
+          </div>
+          <div class="w3-third">
+            <img
+              src="scratch-baking-community-dog-bone.jpg"
+              alt="Hand holding up brown dog bone with a large yellow dog looking at the bone in the background"
+              class="w3-round w3-margin-bottom circle-image"
+              style="width: 60%;"
+            />
+            <h3 style="font-size: 18px; font-weight: bold;">
+              Dedicated to Community
+            </h3>
+            <p style="padding: 0 16px;">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Photo gallery section -->
+
+      <section>
+        <h2
+          class="w3-hide-medium w3-hide-small"
+          style="text-align: center; padding-bottom: 24px; font-size: 3vw;"
+        >
+          Too Good NOT to Eat!
+        </h2>
+        <h2
+          class="w3-hide-large hide-extra-large"
+          style="text-align: center; padding-bottom: 24px;"
+        >
+          Too Good NOT to Eat!
+        </h2>
+
+        <!-- Slideshow container source: https://www.w3schools.com/howto/howto_js_slideshow.asp-->
+        <div class="slideshow-container">
+          <!-- Full-width images with number and caption text -->
+          <div class="mySlides fade">
+            <img
+              src="scratch-baking-macaroons.jpg"
+              alt="Mini almond macaroon cookies filled with chocolate spread out on a table randomly. One has a bite taken out of it and crumbs are on the table."
+            />
+          </div>
+
+          <div class="mySlides fade">
+            <img
+              src="scratch-baking-salad.jpg"
+              alt="Spinach salad in a bowl with feta cheese, strawberries, and spiced pecans on top."
+            />
+          </div>
+
+          <div class="mySlides fade">
+            <img
+              src="scratch-baking-eclairs.jpg"
+              alt="Row of chocolate eclairs still dripping with wet chocolate"
+            />
+          </div>
+
+          <!-- Next and previous buttons -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br />
+
+        <!-- The dots/circles -->
+        <div style="text-align: center;">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
+        <!-- End Slideshow -->
+      </section>
+
+      <!-- Customer reviews section -->
+
+      <section
+        class="w3-hide-small"
+        style="
+          margin: 0 auto;
+          padding: 64px;
+          display: grid;
+          grid-auto-rows: 1fr;
+          grid-row-gap: 12%;
+          max-width: 1440px;
+        "
+      >
+        <div class="two-columns">
+          <img
+            src="scratch-baking-croissants.jpg"
+            alt="Croissant pastries lined up on a baking tray"
+            style="width: 100%; object-fit: cover; align-self: stretch;"
+          />
+          <div style="align-self: center;">
+            <div class="horizontal-rule-quote-left"></div>
+            <blockquote
+              style="
+                font-size: 2vw;
+                font-weight: bold;
+                margin: 0;
+                align-self: center;
+                padding: 0 16px 0 16px;
+              "
+            >
+              "Coffee is amazing, pastries are great, and staff is awesome!!! I
+              would recommend 1000 times over!"
+              <br />
+              <cite
+                style="
+                  display: block;
+                  text-align: left;
+                  font-size: 1.25vw;
+                  font-weight: normal;
+                  padding-top: 5%;
+                "
+                ><em>- Danielle M.</em>
+              </cite>
+            </blockquote>
+            <div class="horizontal-rule-quote-left"></div>
+          </div>
+        </div>
+        <div class="two-columns">
+          <div style="align-self: center;">
+            <div class="horizontal-rule-quote-right"></div>
+            <blockquote
+              style="
+                font-size: 2vw;
+                font-weight: bold;
+                margin: 0;
+                padding: 0 16px 0 16px;
+                text-align: right;
+              "
+            >
+              "You have to get everything. Best bakery in the universe."
+              <br />
+              <cite
+                style="
+                  display: block;
+                  text-align: right;
+                  font-size: 1.25vw;
+                  font-weight: normal;
+                  padding-top: 5%;
+                "
+                ><em>- Andromeda M.</em>
+              </cite>
+            </blockquote>
+            <div class="horizontal-rule-quote-right"></div>
+          </div>
+          <img
+            src="scratch-baking-muffins.jpg"
+            alt="Different flavors of muffins lines up on 2 shelves of trays"
+            style="width: 100%; object-fit: cover; align-self: stretch;"
+          />
+        </div>
+      </section>
+
+      <!--Customer review section on small screens-->
+      <section
+        class="w3-hide-large w3-hide-medium hide-extra-large"
+        style="margin: 0 auto; padding: 64px 32px;"
+      >
+        <div>
+          <div>
+            <div class="horizontal-rule-quote-left"></div>
+            <blockquote
+              style="
+                font-size: 22px;
+                font-weight: bold;
+                margin: 0;
+                padding: 0 16px 0 16px;
+              "
+            >
+              "Coffee is amazing, pastries are great, and staff is awesome!!! I
+              would recommend 1000 times over!"
+              <br />
+              <cite
+                style="
+                  display: block;
+                  text-align: right;
+                  font-size: 18px;
+                  font-weight: normal;
+                  padding-top: 5%;
+                "
+                ><em>- Danielle M.</em>
+              </cite>
+            </blockquote>
+            <div class="horizontal-rule-quote-right"></div>
+          </div>
+          <img
+            src="scratch-baking-croissants.jpg"
+            alt="Croissant pastries lined up on a baking tray"
+            style="width: 100%; object-fit: cover;"
+          />
+        </div>
+        <div>
+          <div>
+            <div class="horizontal-rule-quote-left"></div>
+            <blockquote
+              style="
+                font-size: 22px;
+                font-weight: bold;
+                margin: 0;
+                padding: 0 16px 0 16px;
+              "
+            >
+              "You have to get everything. Best bakery in the universe."
+              <br />
+              <cite
+                style="
+                  display: block;
+                  font-size: 18px;
+                  font-weight: normal;
+                  text-align: right;
+                  padding-top: 5%;
+                "
+                ><em>- Andromeda M.</em>
+              </cite>
+            </blockquote>
+            <div class="horizontal-rule-quote-right"></div>
+          </div>
+          <img
+            src="scratch-baking-muffins.jpg"
+            alt="Different flavors of muffins lines up on 2 shelves of trays"
+            style="width: 100%; object-fit: cover;"
+          />
+        </div>
+      </section>
+
+      <br />
+      <br />
+
+      <!--Subscribe Section-->
+
+      <section
+        style="text-align: center; padding-top: 24px; padding-bottom: 48px;"
+      >
+        <div
+          class="horizontal-rule"
+          style="margin-bottom: 48px; margin-top: 16px;"
+        ></div>
+
+        <h2 class="w3-hide-medium w3-hide-small" style="font-size: 3vw;">
+          Don't Miss A Thing!
+        </h2>
+        <h2 class="w3-hide-large hide-extra-large">
+          Don't Miss A Thing!
+        </h2>
+        <p style="font-size: 20px;">Sign up for our newsletter</p>
+        <form>
+          <input
+            placeholder="Email Address"
+            aria-label="Email Address"
+            class="rounded-input"
+            style="
+              margin: 28px;
+              width: 50%;
+              min-width: 250px;
+              max-width: 400px;
+            "
+          />
+          <button class="rounded-button" style="border: none;">
+            SUBSCRIBE
+          </button>
+        </form>
+      </section>
+    </main>
+    <!--Footer-->
+    <footer
+      class="w3-hide-medium"
+      style="background-color: #f8cb4c; min-height: 375px;"
+    >
+      <div class="three-columns-responsive w3-hide-medium">
+        <div style="align-self: center; padding-top: 24px; text-align: center;">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001.0308363359245!2d-73.0605600845794!3d41.22109847927981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e87493fda10b33%3A0x6b0ce24e6e2fca27!2sScratch%20Baking!5e0!3m2!1sen!2sus!4v1597613803536!5m2!1sen!2sus"
+            width="300"
+            height="250"
+            frameborder="0"
+            style="border: 0;"
+            allowfullscreen=""
+            aria-hidden="false"
+            tabindex="0"
+          ></iframe>
+        </div>
+
+        <div style="padding: 24px 48px 36px 48px;">
+          <h3>Contact Us</h3>
+          <div style="text-align: left;">
+            <a
+              href="https://www.facebook.com/ScratchBaking/"
+              target="_blank"
+              aria-label="Scratch Baking Facebook page"
+              ><i
+                class="fa fa-facebook-official"
+                style="font-size: 48px; margin-right: 36px;"
+              ></i
+            ></a>
+            <a
+              href="https://www.instagram.com/scratchbakingct/"
+              target="_blank"
+              aria-label="Scratch Baking Instagram page"
+              ><i
+                class="fa fa-instagram"
+                style="font-size: 48px; margin-right: 48px;"
+              ></i
+            ></a>
+            <a
+              href="https://www.yelp.com/biz/scratch-baking-milford"
+              target="_blank"
+              aria-label="Scratch Baking Yelp page"
+              ><i class="fa fa-yelp" style="font-size: 48px;"> </i
+            ></a>
+          </div>
+          <p style="margin-bottom: 36px;">
+            <i class="fa fa-map-marker" style="width: 30px;"></i> 84 Broad
+            Street<br />
+            <span style="margin-left: 34px;">Milford, CT, 06460</span><br />
+            <i class="fa fa-phone" style="width: 30px;"></i
+            ><a href="tel:2033014396">(203) 301-4396</a>
+            <br />
+          </p>
+          <a href="#" class="rounded-button">EMAIL US</a>
+        </div>
+
+        <div style="padding: 24px 48px 24px 48px;">
+          <h3>Shop Hours</h3>
+          <p>
+            Open today: 7am - 3pm <br />
+            Monday - Friday: 7am - 3pm <br />
+            Saturday: 7am - 3pm <br />
+            Sunday: 7am - 1 pm
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <footer
+      class="w3-hide-large w3-hide-small hide-extra-large"
+      style="background-color: #f8cb4c;"
+    >
+      <div class="two-columns">
+        <div style="padding: 24px 48px 36px 48px; justify-self: right;">
+          <h3>Contact Us</h3>
+          <div style="text-align: left;">
+            <a
+              href="https://www.facebook.com/ScratchBaking/"
+              target="_blank"
+              aria-label="Scratch Baking Facebook page"
+              ><i
+                class="fa fa-facebook-official"
+                style="font-size: 48px; margin-right: 36px;"
+              ></i
+            ></a>
+            <a
+              href="https://www.instagram.com/scratchbakingct/"
+              target="_blank"
+              aria-label="Scratch Baking Instagram page"
+              ><i
+                class="fa fa-instagram"
+                style="font-size: 48px; margin-right: 48px;"
+              ></i
+            ></a>
+            <a
+              href="https://www.yelp.com/biz/scratch-baking-milford"
+              target="_blank"
+              aria-label="Scratch Baking Yelp page"
+              ><i class="fa fa-yelp" style="font-size: 48px;"></i
+            ></a>
+          </div>
+          <p style="margin-bottom: 36px;">
+            <i class="fa fa-map-marker" style="width: 30px;"></i> 84 Broad
+            Street<br />
+            <span style="margin-left: 34px;">Milford, CT, 06460</span><br />
+            <i class="fa fa-phone" style="width: 30px;"></i
+            ><a href="tel:2033014396">(203) 301-4396</a>
+            <br />
+          </p>
+          <a href="#" class="rounded-button" style="padding-top: 12px;"
+            >EMAIL US</a
+          >
+        </div>
+
+        <div style="padding: 24px 48px 24px 48px;">
+          <h3>Shop Hours</h3>
+          <p>
+            Open today: 7am - 3pm <br />
+            Monday - Friday: 7am - 3pm <br />
+            Saturday: 7am - 3pm <br />
+            Sunday: 7am - 1 pm
+          </p>
+        </div>
+      </div>
+      <div style="padding: 24px 0 24px 0; width: 600px; margin: 0 auto;">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001.0308363359245!2d-73.0605600845794!3d41.22109847927981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e87493fda10b33%3A0x6b0ce24e6e2fca27!2sScratch%20Baking!5e0!3m2!1sen!2sus!4v1597613803536!5m2!1sen!2sus"
+          width="600"
+          height="300"
+          frameborder="0"
+          style="border: 0;"
+          allowfullscreen=""
+          aria-hidden="false"
+          tabindex="0"
+        ></iframe>
+      </div>
+    </footer>
+
+    <!-- End Page Content -->
+
+    <script>
+      // started with: https://www.w3schools.com/howto/howto_js_navbar_shrink_scroll.asp
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop >= 80 ||
+          document.documentElement.scrollTop >= 80
+        ) {
+          document
+            .getElementById("large-nav")
+            .classList.add("compact-large-nav");
+        } else {
+          document
+            .getElementById("large-nav")
+            .classList.remove("compact-large-nav");
+        }
+      }
+
+      //pulled from https://www.w3schools.com/howto/howto_js_mobile_navbar.asp
+      function openhamburger() {
+        var x = document.getElementById("hamburger-menu");
+        if (x.style.display === "block") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "block";
+        }
+
+        document.getElementById("menu-sub-menu").style.display = "none";
+      }
+
+      function openOrderSubMenu() {
+        var x = document.getElementById("order-sub-menu");
+        if (x.style.display === "block") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "block";
+        }
+
+        document.getElementById("menu-sub-menu").style.display = "none";
+        document.getElementById("catering-sub-menu").style.display = "none";
+        document.getElementById("special-orders-sub-menu").style.display =
+          "none";
+        document.getElementById("about-sub-menu").style.display = "none";
+      }
+
+      function openMenuSubMenu() {
+        var x = document.getElementById("menu-sub-menu");
+        if (x.style.display === "block") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "block";
+        }
+
+        document.getElementById("order-sub-menu").style.display = "none";
+        document.getElementById("catering-sub-menu").style.display = "none";
+        document.getElementById("special-orders-sub-menu").style.display =
+          "none";
+        document.getElementById("about-sub-menu").style.display = "none";
+      }
+
+      function openCateringSubMenu() {
+        var x = document.getElementById("catering-sub-menu");
+        if (x.style.display === "block") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "block";
+        }
+
+        document.getElementById("menu-sub-menu").style.display = "none";
+        document.getElementById("order-sub-menu").style.display = "none";
+        document.getElementById("special-orders-sub-menu").style.display =
+          "none";
+        document.getElementById("about-sub-menu").style.display = "none";
+      }
+
+      function openSpecialOrdersSubMenu() {
+        var x = document.getElementById("special-orders-sub-menu");
+        if (x.style.display === "block") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "block";
+        }
+
+        document.getElementById("menu-sub-menu").style.display = "none";
+        document.getElementById("order-sub-menu").style.display = "none";
+        document.getElementById("catering-sub-menu").style.display = "none";
+        document.getElementById("about-sub-menu").style.display = "none";
+      }
+
+      function openAboutSubMenu() {
+        var x = document.getElementById("about-sub-menu");
+        if (x.style.display === "block") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "block";
+        }
+
+        document.getElementById("menu-sub-menu").style.display = "none";
+        document.getElementById("order-sub-menu").style.display = "none";
+        document.getElementById("catering-sub-menu").style.display = "none";
+      }
+    </script>
+    <script>
+      // Slideshow code from:https://www.w3schools.com/howto/howto_js_slideshow.asp
+      var slideIndex = 1;
+      showSlides(slideIndex);
+
+      // Next/previous controls
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      // Thumbnail image controls
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+    </script>
+  </body>
+</html>

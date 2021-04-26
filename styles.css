@@ -1,0 +1,368 @@
+.circle-image {
+  border-radius: 50%;
+}
+
+.nav-logo {
+  height: 20vw;
+  width: 20vw;
+  max-width: 250px;
+  max-height: 250px;
+  position: absolute;
+  transition: 0.4s;
+}
+
+.rounded-button {
+  border-radius: 21px;
+  padding: 8px 18px;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  background-color: #b93e3d;
+}
+
+.rounded-input {
+  border-radius: 21px;
+  height: 36px;
+  width: 250px;
+  color: black;
+  font-size: 14px;
+  padding: 8px;
+  border: 1px solid black;
+}
+
+@media (min-width: 1601px) {
+  .rounded-button {
+    font-size: 24px;
+    min-width: 250px;
+  }
+  .rounded-input {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1601px) {
+  .show-extra-large {
+    display: block !important;
+  }
+  .hide-extra-large {
+    display: none;
+  }
+}
+
+body {
+  background-color: white;
+}
+
+.nav-dropdown-content a:first-of-type {
+  padding-top: 24px;
+}
+
+.nav-links a,
+.nav-dropdown-title,
+#hamburger-menu a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  padding: 16px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.nav-dropdown {
+  display: inline-block;
+}
+.nav-dropdown-content {
+  display: none;
+  min-width: 250px;
+  text-align: left;
+}
+.about-dropdown-content {
+  min-width: 175px;
+}
+
+#large-nav a:hover,
+#large-nav .nav-dropdown:hover .nav-dropdown-title {
+  background-color: white;
+}
+
+#large-nav .nav-dropdown:hover .nav-dropdown-content {
+  display: block;
+  position: absolute;
+  background-color: white;
+}
+.nav-dropdown-content a {
+  display: block;
+  padding: 16px;
+}
+#large-nav .nav-dropdown-content a:hover {
+  background-color: #eeedec;
+}
+
+.nav-dropdown-title i {
+  margin-left: 4px;
+}
+
+@media (min-width: 1600px) {
+  .nav-links a,
+  .nav-dropdown-title,
+  #hamburger-menu a {
+    font-size: 24px;
+    padding: 24px;
+  }
+  .nav-dropdown-content {
+    min-width: 350px;
+  }
+  .about-dropdown-content {
+    min-width: 225px;
+  }
+}
+
+.nav-links {
+  text-align: right;
+  padding-right: 34px;
+}
+
+#large-nav {
+  font-size: 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #f8cb4c;
+  margin: 0;
+  padding-top: 40px;
+  padding-left: 50px;
+  min-height: 148px;
+  transition: 0.4s;
+}
+
+#large-nav.compact-large-nav {
+  height: 125px;
+}
+.compact-large-nav .nav-logo {
+  top: 12.5px;
+  height: 100px;
+  width: 100px;
+}
+.compact-large-nav #quick-links {
+  display: none;
+}
+
+.active {
+  background-color: #000000;
+}
+
+.three-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.three-columns-responsive {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media (max-width: 992px) {
+  .three-columns-responsive {
+    justify-items: center;
+    grid-template-columns: 1fr;
+  }
+}
+
+.small-nav {
+  overflow: hidden;
+  background-color: #f8cb4c;
+  position: relative;
+  font-size: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  min-height: 150px;
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.small-nav-hidden {
+  display: none;
+}
+
+/* Style navigation menu links */
+.small-nav .hamburger-link {
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 40px;
+  text-align: center;
+  display: block;
+  align-self: center;
+}
+
+.small-nav .circle-image {
+  height: 100px;
+  width: 100px;
+  justify-self: center;
+  align-self: center;
+}
+
+/* Style the hamburger menu */
+.small-nav a.icon {
+  background: transparent;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#hamburger-menu {
+  text-align: right;
+  padding-right: 24px;
+}
+#hamburger-menu .nav-dropdown,
+#hamburger-menu a {
+  display: block;
+}
+#hamburger-menu .nav-dropdown-content {
+  text-align: right;
+}
+
+#hamburger-menu .nav-dropdown-title {
+  font-weight: bold;
+}
+
+.small-nav {
+  display: none;
+}
+
+@media (max-width: 950px) {
+  .small-nav {
+    display: grid;
+  }
+
+  #large-nav {
+    display: none;
+  }
+}
+
+.img-filter {
+  background-color: black;
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.horizontal-rule {
+  width: 40%;
+  border-top: 1px solid black;
+  margin: 32px auto;
+}
+
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 16px;
+}
+
+@media (min-width: 600px) {
+  .two-columns {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 32px;
+  }
+}
+
+.horizontal-rule-quote-left {
+  width: 30%;
+  border-top: 1px solid black;
+  margin: 32px 0 32px 16px;
+}
+
+.horizontal-rule-quote-right {
+  width: 30%;
+  border-top: 1px solid black;
+  margin: 32px 16px 32px auto;
+}
+
+/* Slideshow css from:https://www.w3schools.com/howto/howto_js_slideshow.asp */
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+.mySlides img {
+  width: 100%;
+  min-height: 300px;
+  max-height: 500px;
+  object-fit: cover;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 24px;
+  color: white;
+  font-weight: bold;
+  font-size: 36px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*End Slideshow*/
+
+figure {
+    margin: 0;
+}
